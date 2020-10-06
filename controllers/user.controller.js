@@ -1,6 +1,5 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const auth = require("../middleware/auth");
 const User = require("../models/User");
 
 //User controller Object
@@ -79,7 +78,7 @@ userCtrl.userLogin = async (req, res) => {
   }
 };
 
-userCtrl.userLogout = async (req, res) => {
+userCtrl.deleteUser = async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.user);
     res.json(deletedUser);
