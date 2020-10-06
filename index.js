@@ -3,20 +3,27 @@ const morgan = require("morgan");
 const cors = require("cors");
 const createError = require("http-errors");
 require("dotenv").config();
-
 const app = express();
+const userRoutes = require("./routes/user.routes");
+const authRoutes = require("./routes/auth.routes");
 
 // Middlewares
-// app.use(cors({ origin: "http://localhost:3000" }));
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Initialize DB
 require("./config/db")();
 
+// Run Morgan from development mode
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
 // Import Routes
-app.use("/users", require("./routes/userRouter"));
+// app.use("/users", require("./routes/userRouter"));
+app.use("/users", authRoutes);
+app.use("/users", userRoutes);
 
 // 404 handler and pass to error handler
 app.use((req, res, next) => {
@@ -33,11 +40,6 @@ app.use((err, req, res, next) => {
     },
   });
 });
-
-// Run Morgan from development mode
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
-}
 
 const PORT = process.env.PORT || 5000;
 
