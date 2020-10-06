@@ -1,8 +1,8 @@
 /node_modules
 /build
+.env
 
 dev.js
-.env
 uploads
 
 .DS_Store
