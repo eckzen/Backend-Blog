@@ -2,7 +2,7 @@
 /build
 
 dev.js
-
+.env
 uploads
 
 .DS_Store
