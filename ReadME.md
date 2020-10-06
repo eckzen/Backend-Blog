@@ -21,21 +21,21 @@ Create .env file
   - POST http://localhost:5000/users/register
 - Body > raw
 
-  > {
-  > "email": "email here",
-  > "password": "password here",
-  > "passwordCheck":"retype password",
-  > "displayName":"display name here"
-  > }
+  {
+  "email": "email here",
+  "password": "password here",
+  "passwordCheck":"retype password",
+  "displayName":"display name here"
+  }
 
 - Login User
   - POST http://localhost:5000/users/login
 - Body > raw
 
-  > {
-  > "email": "email here",
-  > "password": "password here"
-  > }
+  {
+  "email": "email here",
+  "password": "password here"
+  }
 
 - Logout a User
   DEL http://localhost:5000/users/logout
