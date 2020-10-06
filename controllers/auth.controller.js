@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
-const User = require("../models/userModel");
+const User = require("../models/User");
 
 //Variable
 const authCtrl = {};
