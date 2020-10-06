@@ -20,12 +20,13 @@ Create .env file
 - Register a User
   - POST http://localhost:5000/users/register
 - Body > raw
-  {
-  "email": "email here",
-  "password": "password here",
-  "passwordCheck":"retype password",
-  "displayName":"display name here"
-  }
+
+  > {
+  > "email": "email here",
+  > "password": "password here",
+  > "passwordCheck":"retype password",
+  > "displayName":"display name here"
+  > }
 
 - Login User
   - POST http://localhost:5000/users/login
